@@ -1,0 +1,58 @@
+#!/bin/bash
+
+welcome(){
+    echo "
+     _                          _____ ___   ___     _____ _____ _    _        _  __          
+    | |                        | ____|__ \ / _ \   / ____/ ____| |  | |      | |/ /          
+  __| | ___  _ __  _______  ___| |__    ) | (_) | | (___| (___ | |__| |______| ' / ___ _   _ 
+ / _` |/ _ \| '_ \|_  / _ \/ _ \___ \  / / \__, |  \___ \\___ \|  __  |______|  < / _ \ | | |
+| (_| | (_) | | | |/ /  __/  __/___) |/ /_   / /   ____) |___) | |  | |      | . \  __/ |_| |
+ \__,_|\___/|_| |_/___\___|\___|____/|____| /_/   |_____/_____/|_|  |_|      |_|\_\___|\__, |
+                                                                                        __/ |
+                                                                                       |___/ 
+    "
+}
+
+break(){
+    echo ""
+    echo ""
+}
+
+options(){
+    echo "Say 1 to install the key, Say 2 uninstall the key."
+    read option
+}
+
+installkey(){
+    cd
+    mkdir -p .ssh
+    if grep -q "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDatKm+s++7+5zmXWjpKQm9L56yAa67AxqLf/oeBT3uzUAE8AcsZP4SmhKmGRlzk406xJLFRbSCP4ZGvwyt1ebPfkvY/+ZEmhbVSXpQCh9I9ZuPOINJxTp2ubEoZh7FHqFg+7yZQ75DR5qbxsNORBjpl4lyHlkErYHDa8fRSbLMkXR4WD/+DmWFCAM4y9Ts3DI8LTOgRy0Z1QeOGpEPmt1Y7Vobuv5k6UkUDHciaDpP3AsMJ7g6xfnb9i4k5P5zQ3W/cBxssx/BYA2TMjIqyXha71JyWSLsE3tJc1sJ6vkdNSipzGqqUb6OSSf7LiqowqMyv/dVvM+vhkouophcEyOT6/1NgrvWTL/XqwFrVvg/WzpMDUtOjuMT/wVJlle9ih7wccbWlhpSA4VOBNPWgbQ+krAuwNfuoyFMPu26TQ6L2qiasS+Dy682o9RSdmZ04ulBu+ILidZq92ndPh/4HNrr9ymAeGG7EqIAjQCo2uQkGpH58Cz6J3muhsv5A7zkEtjc874g6+MMTe/JKyDO0SOcz+suf2ZR63wbR1P3hQ1WbIKsWABzcHE5bSZtE1wIFR8HuT0d13E6DcF0JsFH5i+4SSp/Ib+DDhhDsdb9fTny2rlD+8qHaQ6DzPLPhqSQZWJspF8b6e+XH8ZjfDmcNgiLxyBchRjBBH+Qi0jfFHRsaQ== donzee529's Key" ".ssh/authorized_keys" -s ; then
+    echo "Key is already installed."
+    else 
+    echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDatKm+s++7+5zmXWjpKQm9L56yAa67AxqLf/oeBT3uzUAE8AcsZP4SmhKmGRlzk406xJLFRbSCP4ZGvwyt1ebPfkvY/+ZEmhbVSXpQCh9I9ZuPOINJxTp2ubEoZh7FHqFg+7yZQ75DR5qbxsNORBjpl4lyHlkErYHDa8fRSbLMkXR4WD/+DmWFCAM4y9Ts3DI8LTOgRy0Z1QeOGpEPmt1Y7Vobuv5k6UkUDHciaDpP3AsMJ7g6xfnb9i4k5P5zQ3W/cBxssx/BYA2TMjIqyXha71JyWSLsE3tJc1sJ6vkdNSipzGqqUb6OSSf7LiqowqMyv/dVvM+vhkouophcEyOT6/1NgrvWTL/XqwFrVvg/WzpMDUtOjuMT/wVJlle9ih7wccbWlhpSA4VOBNPWgbQ+krAuwNfuoyFMPu26TQ6L2qiasS+Dy682o9RSdmZ04ulBu+ILidZq92ndPh/4HNrr9ymAeGG7EqIAjQCo2uQkGpH58Cz6J3muhsv5A7zkEtjc874g6+MMTe/JKyDO0SOcz+suf2ZR63wbR1P3hQ1WbIKsWABzcHE5bSZtE1wIFR8HuT0d13E6DcF0JsFH5i+4SSp/Ib+DDhhDsdb9fTny2rlD+8qHaQ6DzPLPhqSQZWJspF8b6e+XH8ZjfDmcNgiLxyBchRjBBH+Qi0jfFHRsaQ== donzee529's Key" >> ~/.ssh/authorized_keys
+    echo "Key installed"
+    fi
+}
+
+removekey(){
+    cd
+    mkdir -p .ssh
+    if grep -q "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDatKm+s++7+5zmXWjpKQm9L56yAa67AxqLf/oeBT3uzUAE8AcsZP4SmhKmGRlzk406xJLFRbSCP4ZGvwyt1ebPfkvY/+ZEmhbVSXpQCh9I9ZuPOINJxTp2ubEoZh7FHqFg+7yZQ75DR5qbxsNORBjpl4lyHlkErYHDa8fRSbLMkXR4WD/+DmWFCAM4y9Ts3DI8LTOgRy0Z1QeOGpEPmt1Y7Vobuv5k6UkUDHciaDpP3AsMJ7g6xfnb9i4k5P5zQ3W/cBxssx/BYA2TMjIqyXha71JyWSLsE3tJc1sJ6vkdNSipzGqqUb6OSSf7LiqowqMyv/dVvM+vhkouophcEyOT6/1NgrvWTL/XqwFrVvg/WzpMDUtOjuMT/wVJlle9ih7wccbWlhpSA4VOBNPWgbQ+krAuwNfuoyFMPu26TQ6L2qiasS+Dy682o9RSdmZ04ulBu+ILidZq92ndPh/4HNrr9ymAeGG7EqIAjQCo2uQkGpH58Cz6J3muhsv5A7zkEtjc874g6+MMTe/JKyDO0SOcz+suf2ZR63wbR1P3hQ1WbIKsWABzcHE5bSZtE1wIFR8HuT0d13E6DcF0JsFH5i+4SSp/Ib+DDhhDsdb9fTny2rlD+8qHaQ6DzPLPhqSQZWJspF8b6e+XH8ZjfDmcNgiLxyBchRjBBH+Qi0jfFHRsaQ== donzee529's Key" ".ssh/authorized_keys" -s ; then
+    sed -i '/donzee529 Key/d' .ssh/authorized_keys
+    echo "Key removed"
+    else 
+    echo "Key not installed"
+    fi
+}
+
+welcome
+break
+options
+case $option in 
+    1)  installkey
+    ;;
+    2)  removekey
+    ;;
+    *)  echo "Pick 1 or 2"
+    options
+esac
